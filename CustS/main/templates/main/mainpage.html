@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{%block title %}Store{% endblock %}
+{% block content %}
+<div class="features">
+    <div class="model-row">
+  {% for image in images %}
+    <button class="model-container" data-index="{{ forloop.counter }}" onclick="yourFunction({{ forloop.counter }})">
+        <img src="{% static image %}" class="model-image">
+    </button>
+  {% endfor %}
+</div>
+
+</div>
+
+
+</div>
+{% endblock %}
+
