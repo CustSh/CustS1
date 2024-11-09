@@ -14,10 +14,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import handler404
 from django.contrib import admin
+from django.template.context_processors import request
 from django.urls import path,include
-
+from main.views import page_not_f
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
+    path('catalog/',include('catalog.urls'))
 ]
+handler404 = page_not_f
