@@ -1,2 +1,21 @@
 {% extends 'main/layout.html' %}
-{% load static %}
+
+{% block title %}Каталог{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Каталог товаров</h1>
+    <div class="catalog">
+        {% for product in products %}
+            <div class="card">
+               <div class="card-image-wrapper">
+        <img src="{{ product.image_url }}" alt="{{ product.name }}">
+    </div>
+                <div class="product-name">{{ product.name }}</div>
+                <div class="product-price">{{ product.price }} $</div>
+                <a href="{% url 'product_detail' product.id %}" class="card-button">Подробнее</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
