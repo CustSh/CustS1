@@ -1,3 +1,4 @@
+
 from django.conf.urls import handler404
 from django.contrib import admin
 from django.template.context_processors import request
@@ -10,6 +11,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('catalog/',include('catalog.urls'))
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
