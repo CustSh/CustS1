@@ -25,19 +25,22 @@ SECRET_KEY = 'django-insecure-19u3*1&0t_)0!h7i7de#eeh7c0%18y$_#di0hi9wxut+by3i%(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'main',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main',
+    'catalog',
+    'authentication',
+
 ]
 
 MIDDLEWARE = [
@@ -118,7 +121,24 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR /'static'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'main/static'
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+LOGIN_REDIRECT_URL = 'home'  # Имя маршрута, куда перенаправлять после входа
+LOGOUT_REDIRECT_URL = 'home'  # Имя маршрута, куда перенаправлять после выхода
+
+
