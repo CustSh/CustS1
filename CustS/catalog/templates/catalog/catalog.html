@@ -8,11 +8,23 @@
     <div class="catalog">
         {% for product in products %}
             <div class="card">
-               <div class="card-image-wrapper">
-        {% if product.image %}
-    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-{% endif %}
-    </div>
+                <div class="card-image-wrapper">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% endif %}
+                </div>
+                {% if product.videos %}
+                    <div class="card-videos-wrapper">
+                        {% for video in product.videos.all %}
+                            <div class="card-video-wrapper">
+                                <video controls class="product-video">
+                                    <source src="{{ video.file.url }}" type="video/mp4">
+                                    Ваш браузер не поддерживает видео.
+                                </video>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <div class="product-name">{{ product.name }}</div>
                 <div class="product-price">{{ product.price }} $</div>
                 <a href="{% url 'product_detail' product.id %}" class="card-button">Подробнее</a>
@@ -21,4 +33,3 @@
     </div>
 </div>
 {% endblock %}
-

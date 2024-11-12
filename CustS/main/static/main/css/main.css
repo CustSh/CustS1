@@ -1,11 +1,13 @@
 body {
     background-color: #829a9f;
 }
+
 .model-row {
   display: flex;               /* Выравниваем элементы в один ряд */
   gap: 10px;                   /* Отступы между блоками */
   justify-content: center;   /* Выровнять блоки слева */
 }
+
 .model-container {
   width: 150px;              /* Ширина блока */
   height: 250px;             /* Высота блока */
@@ -92,15 +94,15 @@ ul li.active {
 .catalog {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    gap: 20px;   /*Определяет отступы между элементами сетки — по 20 пикселей по горизонтали и вертикали.*/
     padding: 20px;
     justify-items: center;
 }
 
 .card {
     width: 100%;
-    max-width: 200px;
-    height: 400px;
+    max-width: 500px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,6 +161,24 @@ ul li.active {
 
 .card-button:hover {
     background-color: #0056b3;
+}
+
+
+.card-video-wrapper {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #f9f9f9; /* Фон для выделения видео */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.product-video {
+    width: 100%; /* Видео будет занимать всю ширину обертки */
+    max-height: 200px; /* Ограничение по высоте */
+    border-radius: 5px;
+    object-fit: cover; /* Обрезка, если видео выходит за границы */
 }
 
 
