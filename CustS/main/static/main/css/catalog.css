@@ -1,0 +1,109 @@
+
+.logo {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 36px;
+            color: #000000;
+            font-weight: 700;
+            padding: 15px;
+        }
+
+.container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;   /*Определяет отступы между элементами сетки — по 20 пикселей по горизонтали и вертикали.*/
+    padding: 20px;
+    justify-items: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-image-wrapper {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;           /* Скрываем выходящие части изображения */
+    border-radius: 10px;        /* Закругленные края */
+}
+
+.card-image-wrapper img {
+    width: auto;
+    height: 100%;
+}
+
+
+
+.product-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.product-price {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+}
+
+.card-button {
+    margin-top: auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+}
+
+
+.card-video-wrapper {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #f9f9f9; /* Фон для выделения видео */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.product-video {
+    width: 100%; /* Видео будет занимать всю ширину обертки */
+    max-height: 200px; /* Ограничение по высоте */
+    border-radius: 5px;
+    object-fit: cover; /* Обрезка, если видео выходит за границы */
+}
+
+.add-to-cart-button{
+    margin: 10px;
+}
+
