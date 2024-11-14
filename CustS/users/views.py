@@ -6,14 +6,14 @@ def register(request):
     success, form = register_user(request)
     if success:
         return redirect('home')  # Перенаправление на главную страницу после успешной регистрации
-    return render(request, 'authentication/register.html', {'form': form})
+    return render(request, 'users/register.html', {'form': form})
 
 
 def user_login(request):
     success, form = authenticate_user(request)
     if success:
         return redirect('home')  # Перенаправление на главную страницу после успешного входа
-    return render(request, 'authentication/login.html', {'form': form})
+    return render(request, 'users/login.html', {'form': form})
 
 
 def user_logout(request):

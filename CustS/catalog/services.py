@@ -13,3 +13,5 @@ def get_product_by_id(product_id):
     """
     return get_object_or_404(Product, id=product_id)
 
+def search_products(query):
+    return Product.objects.filter(name__icontains=query)  # Поиск по имени продукта
