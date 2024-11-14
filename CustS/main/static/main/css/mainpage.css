@@ -1,21 +1,74 @@
 body{
-  background-color: rgb(113 153 178);
+  background: linear-gradient(
+    to bottom right,
+    #261F4B,
+    #3D3178 35%,
+    #4F4594 60%,
+    #3D3178
+  );
   padding-top: 110px;
+  overflow: hidden;
 }
 
-.popular-line{
-  background: rgb(113,153,178);
-  background: linear-gradient(90deg, rgba(113,153,178,1) 0%, rgba(156,176,184,1) 50%, rgba(192,192,192,1) 100%);
-  height: 75px;
+html{
   font-family: Montserrat;
-  text-align: center;
-  color: white;
-  font-size: 30px;
-  display: grid;
-  align-items: center;  
-  box-shadow: black -5px 0px 10px;
 }
 
+.trend-line{
+  background: linear-gradient(to right, #606A87, #7D6D98, #6A7D90, #7C7086);
+  position: absolute;
+  top: 110px;
+  height: 2em; 
+  color: var(--text-clr);
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  overflow: hidden;
+  z-index: -1;
+  width: 100%;
+  font-size: 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
 
+.card-wrapper{
+  position: absolute;
+  left: 388px;
+  top: 300px;
+  width: 50%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
 
+.card{
+  position: absolute;
+  border: #1A1433, black;
+  border-radius: 7%;
+}
+
+.secondary-card{
+  position: relative;
+  width: 90%;
+  height: 80%;
+}
+
+.primary-card{
+  position: relative;
+  height: 90%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.card-1{
+  margin-right: 10px;
+}
+
+.card-2{
+  margin-left: -15px;
+}
+
+.card-3{
+  margin-left: 10px;
+}
 

@@ -1,3 +1,17 @@
+:root{
+  --base-clr: #1A1433;
+  --text-clr: #DFE3E6;
+  --hover-clr: #9580C9;
+  --accent-clr: #58C895;
+  --sidebar-clr: #342568;
+  --active-clr: #E6D365;
+  --header-clr: #261F4B;
+  --main-clr: #3D3178;
+  --border-clr: #3D3178;
+  --search-clr: #F5F5F5;
+  --default-font-family: Montserrat;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -15,20 +29,140 @@ body{
   height: 100vh;
   width: 250px;
   padding: 5px 1em;
-  background-color: red;
+  background-color: var(--sidebar-clr);
   border-right: 1px solid black;
+
+  position: sticky;
+  top: 0;
+  align-self: start;
+  transition: 300ms ease-in-out;
+  overflow: hidden;
+  text-wrap: nowrap;
+  font-family: var(--default-font-family);
+}
+
+#sidebar.close{
+  padding: 5px;
+  width: 60px;
+}
+
+#sidebar ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+#sidebar > ul > li:first-child{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  .logo{
+    font-weight: 600;
+  }
+}
+
+#sidebar ul li.active a{
+  color: var(--active-clr);
+
+  svg{
+    fill: var(--active-clr);
+  }
+}
+
+#sidebar a, #sidebar .dropdown-button, #sidebar .logo, #sidebar .dropdown{
+  border-radius: .5em;
+  padding: .85em;
+  text-decoration: none;
+  color: var(--text-clr);
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+#sidebar svg{
+  flex-shrink: 0;
+  fill: var(--text-clr);
+}
+
+#sidebar a span, #sidebar .dropdown span{
+  flex-grow: 1;
+}
+
+#sidebar a:hover, #sidebar .dropdown-button:hover, #sidebar .dropdown:hover{
+  background-color: var(--hover-clr);
+} 
+
+#sidebar .sub-menu{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 300ms ease-in-out;
+
+  > div{
+    overflow: hidden;
+  }
+}
+
+#sidebar .sub-menu.show{
+  grid-template-rows: 1fr;
+}
+
+#sidebar .sub-menu svg{
+  width: 24;
+  height: 24;
+  flex-shrink: 0;
+}
+
+#sidebar .sub-menu a{
+  padding-left: 2em;
+}
+
+#sidebar .sub-menu li{
+  align-items: center;
+}
+
+.dropdown svg{
+  transition: 200ms ease;
+}
+
+.rotate svg:last-child{
+  rotate: -180deg;
+}
+
+.dropdown{
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+#toggle-button{
+  margin-left: auto;
+  padding: 1em;
+  border: none;
+  border-radius: .5em;
+  background: none;
+  cursor: pointer;
+
+  svg{
+    transition: rotate 250ms ease;
+  }
+}
+
+#toggle-button:hover{
+  background-color: var(--hover-clr);
 }
 
 .flex-header{
   display: flex;
-  background-color: rgb(52 61 70);
+  background-color: var(--header-clr);
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
   height: 35px;
   border: none;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -37,7 +171,7 @@ body{
 .flex-mail-child{
   flex: 1;
   border: none;
-  color: white;
+  color: var(--text-clr);
   margin-left: 10px;
   width: 100px;
 }
@@ -45,12 +179,12 @@ body{
 .flex-number-child{
   margin-right: 10px;
   border: none;
-  color:white;
+  color:var(--text-clr);
 }
 
 .main-bar{
-  background-color: rgb(192 192 192);
-  position: absolute;
+  background-color: var(--main-clr);
+  position: fixed;
   top: 35px;
   left: 0px;
   right: 0px;
@@ -62,16 +196,8 @@ body{
   border-inline: 0px;
   border-top: 0px;
   border-style: groove;
-  border-color: white;
+  border-color: var(--border-clr);
   text-align: center;
-}
-
-.main-menu-button{
-  position: absolute;
-  top: 50%;
-  margin-top: -24px;
-  border: none;
-  background-color: transparent;
 }
 
 .store-name{
@@ -79,6 +205,7 @@ body{
   font-size: 40px;
   font-weight: bold;
   text-align: center;
+  color: var(--text-clr);
 }
 
 .search-wrapper{
@@ -87,7 +214,7 @@ body{
   width: 450px;
   position: relative;
   display: inline-block;
-
+  color: var(--search-clr)
 }
 
 .search-wrapper input {
@@ -113,16 +240,26 @@ body{
 }
 
 .profile{
-  margin-left: 150px;
+  margin-left: 200px;
 }
 
-.menu-button{
+.profile-button{
   border: none;
   background-color: transparent;
+  color: var(--text-clr);
 }
 
 .checkout-button{
   border: none;
   background-color: transparent;
+  color: var(--text-clr);
 }
 
+/* @media(max-width: 800px){
+  body{
+    grid-template-columns: 1fr;
+  }
+  main{
+    padding: 2em 1em 60px 1em;
+  }
+} */
