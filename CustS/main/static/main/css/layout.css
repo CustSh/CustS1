@@ -210,15 +210,17 @@ body{
 
 .search-wrapper{
   height: 50px;
-  margin-left: 100px;
+  margin-left: 75px;
+  margin-right: 59px;
   width: 450px;
   position: relative;
   display: inline-block;
-  color: var(--search-clr)
+  color: var(--search-clr);
 }
 
 .search-wrapper input {
-  height: 100%;
+  position: relative;
+  height: 50px;
   width: 100%;
   border-radius: 75px;
   outline: none;
@@ -228,19 +230,28 @@ body{
 
 .search-wrapper button {
   position: absolute;
+  right: 0;
+  margin-right: 25px;
+  height: 100%;
   border: none;
   background-color: transparent;
-  margin-left: 400px;
-  margin-top: 7px;
+
 }
 
 .checkout{
   margin-left: 150px;
   top: 50%;
+  svg{
+    fill: var(--text-clr)
+  }
 }
 
 .profile{
   margin-left: 200px;
+  color: var(--text-clr);
+  svg{
+    fill: var(--text-clr);
+  }
 }
 
 .profile-button{
