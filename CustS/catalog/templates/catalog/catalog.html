@@ -17,11 +17,13 @@
       </button>
       <!-- Форма должна быть вложена в dropdown-menu -->
       <div class="dropdown-menu bg-dark p-3">
-        <form action="{% url 'catalog:index' slug_url %}" method="get" data-bs-theme="dark">
+        <form action="{% if request.GET.q %}{% url 'catalog:search' %}{% else %}{% url 'catalog:index' slug_url %} {% endif %}" method="get" data-bs-theme="dark">
             <div class="form-check text-white">
                 <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on"
                 {% if request.GET.on_sale == 'on' %}checked{% endif %}>
-                {%comment%}<input type="hidden" name="q" value="{{ request.GET.q }}">{% endcomment%}
+                {% if request.GET.q %}
+                <input type="hidden" name="q" value="{{ request.GET.q }}">
+                {% endif %}
                 <label class="form-check-label" for="flexCheckDefault">
                     Товары по акции
                 </label>
@@ -79,7 +81,6 @@
                 <div class="product-name">{{ product.name }}</div>
                 <div class="product-price">{{ product.price }} $</div>
                 <a href="{% url 'catalog:product_detail' product.slug %}" class="card-button">Подробнее</a>
-                <a href="{% url 'product_detail' product.id %}" class="card-button">Подробнее</a>
                 <button class="add-to-cart-button">
                     <a href="{% url 'add' product_id=product.id %}"></a>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"/></svg>
