@@ -15,3 +15,8 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     pass
+
+from .models import SubCategory, SubClass
+
+admin.site.register(SubCategory)
+admin.site.register(SubClass)

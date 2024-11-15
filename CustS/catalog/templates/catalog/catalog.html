@@ -1,14 +1,62 @@
 {% extends 'main/layout.html' %}
 {% load static %}
+{% load goods_tags %}
 {% block title %}Каталог{% endblock %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'main/css/catalog.css' %}">
 {% endblock %}
 
 {% block content %}
+  <!-- Форма фильтров -->
+
+    <div class="dropdown mb-2">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+      <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Фильтры
+      </button>
+      <!-- Форма должна быть вложена в dropdown-menu -->
+      <div class="dropdown-menu bg-dark p-3">
+        <form action="{% url 'catalog:index' slug_url %}" method="get" data-bs-theme="dark">
+            <div class="form-check text-white">
+                <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on"
+                {% if request.GET.on_sale == 'on' %}checked{% endif %}>
+                {%comment%}<input type="hidden" name="q" value="{{ request.GET.q }}">{% endcomment%}
+                <label class="form-check-label" for="flexCheckDefault">
+                    Товары по акции
+                </label>
+            </div>
+            <p class="text-white mt-3">Сортировать:</p>
+            <div class="form-check text-white">
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default"
+                       {% if not request.GET.order_by or request.GET.order_by == 'default' %} checked {% endif %}>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    По умолчанию
+                </label>
+            </div>
+            <div class="form-check text-white">
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price"
+                {% if request.GET.order_by == 'price' %}checked{% endif %}>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    От дешевых к дорогим
+                </label>
+            </div>
+            <div class="form-check text-white">
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price"
+                {% if request.GET.order_by == '-price' %}checked{% endif %}>
+                <label class="form-check-label" for="flexRadioDefault3">
+                    От дорогих к дешевым
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Применить</button>
+        </form>
+      </div>
+  </div>
+
+
 <div class="container">
     <h1>Каталог товаров</h1>
-    <div class="catalog">
+    <div class="catalog" id="product-list">
         {% for product in products %}
             <div class="card">
                 <div class="card-image-wrapper">
@@ -30,6 +78,7 @@
                 {% endif %}
                 <div class="product-name">{{ product.name }}</div>
                 <div class="product-price">{{ product.price }} $</div>
+                <a href="{% url 'catalog:product_detail' product.slug %}" class="card-button">Подробнее</a>
                 <a href="{% url 'product_detail' product.id %}" class="card-button">Подробнее</a>
                 <button class="add-to-cart-button">
                     <a href="{% url 'add' product_id=product.id %}"></a>
@@ -38,5 +87,18 @@
             </div>
         {% endfor %}
     </div>
+   <link rel="stylesheet" href="{% static 'catalog/css/loading.css' %}">
+
+
+    <div id="loader" style="display: none;">Loading...</div>
+<script>
+     baseUrl = "{% change_params  %}";
+</script>
+    <script src="{% static 'catalog/js/paginator.js' %}"></script>
+
+
 </div>
+
 {% endblock %}
+
+

@@ -9,5 +9,5 @@
 {% if product.image %}
     <img src="{{ product.image.url }}" alt="{{ product.name }}">
 {% endif %}
-<a href="{% url 'catalog' %}">Назад к каталогу</a>
+<a href="{% url 'catalog:index' 'all' %}">Назад к каталогу</a>
 {% endblock %}
