@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from .services import get_all_products, get_product_by_id, search_products
 
+
 def catalog(request):
-    query = request.GET.get('q')  # Получаем поисковый запрос
-    if query:
-        products = search_products(query)  # Поиск продуктов по запросу
-    else:
-        products = get_all_products()  # Все продукты, если нет запроса
+    query = request.GET.get('q')
+
+    # Если запрос пустой, просто возвращаем страницу без изменений
+    if not query or query.strip() == "":
+        return render(request, "main/mainpage.html", {'query': query})
+
+    # Выполняем поиск, если запрос не пустой
+    products = search_products(query)
     return render(request, "catalog/catalog.html", {'products': products, 'query': query})
 
 def product_detail(request, product_id):
