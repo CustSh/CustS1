@@ -3,7 +3,10 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.core.paginator import Paginator
 from .services import search_products
 from .models import Category, Product
-def catalog(request, category_slug):
+from .utils import q_search
+
+
+def catalog(request, category_slug=None):
     page = request.GET.get('page', 1)  # текущая страница
     on_sale = request.GET.get('on_sale',None)
     order_by = request.GET.get('order_by',None)
@@ -12,7 +15,7 @@ def catalog(request, category_slug):
     if category_slug == "all":
         products = Product.objects.all()
     elif query:
-        products = search_products(query)
+        products =q_search(query)
     else:
         products = get_list_or_404(Product.objects.filter(category__slug=category_slug))
 
