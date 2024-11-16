@@ -1,0 +1,212 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "mel",
+        "description": "gen",
+        "slug": "mygen",
+        "price": "125.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "smd",
+        "description": "gen",
+        "slug": "mygen1",
+        "price": "265.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "ssq",
+        "description": "gen",
+        "slug": "mygen2",
+        "price": "455.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "name": "las",
+        "description": "gen",
+        "slug": "mygen3",
+        "price": "55.00",
+        "category": 4,
+        "discount": "3.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "name": "weq",
+        "description": "gen",
+        "slug": "mygen4",
+        "price": "455.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+        "name": "kol",
+        "description": "gen",
+        "slug": "mygen5",
+        "price": "455.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "name": "kol6",
+        "description": "gen",
+        "slug": "mygen6",
+        "price": "455.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "name": "kim7",
+        "description": "gen",
+        "slug": "mygen7",
+        "price": "455.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+        "name": "ew",
+        "description": "gen",
+        "slug": "mygen8",
+        "price": "455.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+        "name": "ew9",
+        "description": "gen",
+        "slug": "mygen9",
+        "price": "455.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+        "name": "ko10",
+        "description": "gen",
+        "slug": "mygen10",
+        "price": "75.00",
+        "category": 4,
+        "discount": "7.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+        "name": "img11",
+        "description": "gen",
+        "slug": "mygen11",
+        "price": "45.00",
+        "category": 4,
+        "discount": "5.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 13,
+    "fields": {
+        "name": "put1",
+        "description": "gen",
+        "slug": "put1",
+        "price": "355.00",
+        "category": 4,
+        "discount": "4.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 14,
+    "fields": {
+        "name": "put2",
+        "description": "gen",
+        "slug": "put2",
+        "price": "455.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 15,
+    "fields": {
+        "name": "put3",
+        "description": "gen",
+        "slug": "put3",
+        "price": "46.00",
+        "category": 4,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
+}
+]
