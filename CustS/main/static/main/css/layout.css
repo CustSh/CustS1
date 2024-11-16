@@ -32,7 +32,7 @@ body{
   background-color: var(--sidebar-clr);
   border-right: 1px solid black;
 
-  position: sticky;
+  position: fixed;
   top: 0;
   align-self: start;
   transition: 300ms ease-in-out;
@@ -218,6 +218,15 @@ body{
   color: var(--search-clr);
 }
 
+.search-wrapper:focus{
+  outline: 0;
+}
+
+.search-wrapper:focus-within{
+  width: 100%;
+  box-shadow: 10px 10px 30px black;
+}
+
 .search-wrapper input {
   position: relative;
   height: 50px;
@@ -225,7 +234,7 @@ body{
   border-radius: 75px;
   outline: none;
   border: none;
-  padding-left: 10px;
+  padding-left: 15px;
 }
 
 .search-wrapper button {
