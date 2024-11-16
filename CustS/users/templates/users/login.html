@@ -1,9 +1,15 @@
 {% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/user.css' %}">
+{% endblock %}
+
 {% block content %}
-    <h2>Вход</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Войти</button>
-    </form>
+  <h2>Вход</h2>
+  <form class="form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+  </form>
 {% endblock %}
