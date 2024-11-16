@@ -4,13 +4,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const baseUrl = window.baseUrl; // Получаем значение из шаблона
 
     async function loadMoreProducts() {
-        if (isLoading) return;
+        if (isLoading) {
+            console.log("Загрузка уже идет, запрос пропущен.");
+            return;
+        }
 
         isLoading = true;
         document.getElementById("loader").style.display = "block";
+        console.log(`Запрос на страницу ${page} отправлен.`);
 
         try {
-            // Добавляем текущую страницу к базовому URL
             const response = await fetch(`${baseUrl}&page=${page}`, {
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
@@ -19,9 +22,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (response.ok) {
                 const data = await response.json();
+                console.log("Ответ с сервера получен:", data);
+
+                if (!data.products || data.products.length === 0) {
+                    console.warn("Продукты отсутствуют в ответе сервера.");
+                }
 
                 const productContainer = document.getElementById("product-list");
+                const existingProducts = Array.from(productContainer.querySelectorAll(".card"))
+                    .map(card => card.querySelector(".product-name").textContent);
+
+                console.log("Уже существующие товары:", existingProducts);
+
                 data.products.forEach(product => {
+                    if (existingProducts.includes(product.name)) {
+                        console.warn(`Товар "${product.name}" уже добавлен, пропускаем.`);
+                        return;
+                    }
+
                     const productElement = document.createElement("div");
                     productElement.className = "card";
                     productElement.innerHTML = `
@@ -33,11 +51,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         <a href="/catalog/${product.slug}" class="card-button">Подробнее</a>
                     `;
                     productContainer.appendChild(productElement);
+                    console.log(`Товар "${product.name}" добавлен.`);
                 });
 
                 if (data.has_next) {
                     page++;
+                    console.log(`Следующая страница: ${page}`);
                 } else {
+                    console.log("Больше страниц нет, снимаем обработчик прокрутки.");
                     window.removeEventListener("scroll", handleScroll);
                 }
             } else {
@@ -53,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function handleScroll() {
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+            console.log("Срабатывает событие прокрутки.");
             loadMoreProducts();
         }
     }
