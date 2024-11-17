@@ -50,11 +50,8 @@ def user_login(request):
 
 @login_required
 def user_logout(request):
-    messages.success(request,f"{request.user.username}, Вы вышли из аккаунта!")
     auth.logout(request)
-    all_messages = messages.get_messages(request)
-    for message in all_messages:
-        print(message)
+    messages.success(request,f" Вы вышли из аккаунта!")
     return HttpResponseRedirect(reverse('home'))  # Перенаправление на главную страницу после выхода
 
 @login_required
