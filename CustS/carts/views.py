@@ -4,6 +4,7 @@ from django.http import HttpResponse
 def carts(request):
     return render(request, "carts/carts.html")
 
+
 def add(request, product_id):
     return HttpResponse(status=204)
 
