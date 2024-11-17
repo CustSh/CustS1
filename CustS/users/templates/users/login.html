@@ -8,9 +8,12 @@
                 <h2 class="text-center mb-4">Авторизация</h2>
                 <form action="{% url 'user:login'%}" method="post">
                         {% csrf_token %}
+                        {% if request.GET.next %}
+                            <input type='hidden' name='next' value={{request.GET.next}}>
+                        {% endif %}
                         {% comment %}
                             to do js validation(посмотри про 3 уровня валидации логина и пароля,
-                             необходимо выполнить первый, чтобы лишний раз не нагружать базу)
+                            необходимо выполнить первый, чтобы лишний раз не нагружать базу)
                         {% endcomment %}
                         {% if form.non_field_errors %}
                         <p>{{form.non_field_errors}}</p>

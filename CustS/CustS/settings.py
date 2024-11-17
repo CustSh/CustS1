@@ -147,3 +147,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'home'  # Имя маршрута, куда перенаправлять после входа
 LOGOUT_REDIRECT_URL = 'home'  # Имя маршрута, куда перенаправлять после выхода
+LOGIN_URL = '/user/login/'
