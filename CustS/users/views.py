@@ -1,7 +1,7 @@
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib import auth
 from django.urls import reverse
 from users.forms import ProfileForm, UserLoginForm,UserRegistrationForm
@@ -16,7 +16,7 @@ def register(request):
             user=form.instance
             auth.login(request,user)
             messages.success(request,f"{user}, Вы успешно зарегистрировались и вошли в аккаунт!")
-            return HttpResponseRedirect('home')
+            return redirect('home')
     else:
         form = UserRegistrationForm()
 
@@ -39,7 +39,7 @@ def user_login(request):
 
                 if request.POST.get('next',None):
                     return HttpResponseRedirect(request.POST.get('next'))
-                return HttpResponseRedirect('home')
+                return redirect('home')
     else:
         form = UserLoginForm()
     context = {
@@ -64,7 +64,7 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request,"Профиль успешно обновлён!")
-            return HttpResponseRedirect('user:profile')
+            return redirect('user:profile')
     else:
         form = ProfileForm(instance=request.user)
     context = {
