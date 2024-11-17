@@ -15,7 +15,7 @@ def catalog(request, category_slug=None):
     if category_slug == "all":
         products = Product.objects.all()
     elif query:
-        products =q_search(query)
+        products = q_search(query)
     else:
         products = get_list_or_404(Product.objects.filter(category__slug=category_slug))
 

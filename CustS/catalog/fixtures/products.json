@@ -54,5 +54,19 @@
         "quantity": 0,
         "image": "products/watermelon_ZrD1TgY.png"
     }
+},
+{
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+        "name": "putana2",
+        "description": "suck suck suck putana",
+        "slug": "put2",
+        "price": "455.00",
+        "category": 1,
+        "discount": "0.00",
+        "quantity": 0,
+        "image": ""
+    }
 }
 ]
