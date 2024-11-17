@@ -1,15 +1,24 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
-from users.forms import UserLoginForm
+from django.urls import reverse
+from users.forms import UserLoginForm,UserRegistrationForm
 from .services import register_user, authenticate_user, logout_user
 
 
 def register(request):
-    success, form = register_user(request)
-    if success:
-        return redirect('home')  # Перенаправление на главную страницу после успешной регистрации
-    return render(request, 'users/register.html', {'form': form})
+    if request.method == 'POST':
+        form = UserRegistrationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user:login')
+    else:
+        form = UserRegistrationForm()
 
+    context={
+        "title":'Home-Регистрация',
+        'form': form,
+    }
+    return render(request,'users/register.html',context)
 
 def user_login(request):
     if request.method == 'POST':
@@ -30,8 +39,8 @@ def user_login(request):
     return render(request,'users/login.html',context)
 
 def user_logout(request):
-    logout_user(request)
-    return redirect('home')  # Перенаправление на главную страницу после выхода
+    auth.logout(request)
+    return redirect(reverse('home'))  # Перенаправление на главную страницу после выхода
 
 def profile(request):
     context = {
