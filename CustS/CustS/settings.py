@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'main',
     'catalog',
     'users',
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'CustS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,8 +80,13 @@ WSGI_APPLICATION = 'CustS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'home',
+        'USER': 'home',
+        'PASSWORD': 'home',
+        'HOST': 'localhost',
+        'PORT': '5432',
+
     }
 }
 
@@ -121,16 +127,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR /'static'
+STATIC_ROOT = BASE_DIR /'staticfiles'
 
 STATICFILES_DIRS = [
-    BASE_DIR /'main/static'
+    BASE_DIR /'main/static',
+    BASE_DIR /'static'
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+AUTH_USER_MODEL = 'users.User'
 
 import os
 
@@ -140,5 +147,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'home'  # Имя маршрута, куда перенаправлять после входа
 LOGOUT_REDIRECT_URL = 'home'  # Имя маршрута, куда перенаправлять после выхода
-
-

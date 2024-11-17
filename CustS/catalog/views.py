@@ -15,7 +15,7 @@ def catalog(request, category_slug=None):
     if category_slug == "all":
         products = Product.objects.all()
     elif query:
-        products =q_search(query)
+        products = q_search(query)
     else:
         products = get_list_or_404(Product.objects.filter(category__slug=category_slug))
 
@@ -24,7 +24,7 @@ def catalog(request, category_slug=None):
     if order_by and order_by != "default":
         products=products.order_by(order_by)
 
-    paginator = Paginator(products, 10)  # по 5 товаров на страницу
+    paginator = Paginator(products, 4)  # по 5 товаров на страницу
     current_page = paginator.get_page(page)
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':  # проверка на AJAX
@@ -55,4 +55,3 @@ def product_detail(request, product_slug):
     product = get_object_or_404(Product,slug=product_slug)
     context = {"product": product}
     return render(request, 'catalog/product_detail.html', context)
-
