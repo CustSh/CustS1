@@ -1,3 +1,7 @@
+:root{
+  --main-clr: #3D3178;
+}
+
 body{
   background: linear-gradient(
     to bottom right,
@@ -38,6 +42,7 @@ html{
   height: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(400px, 400px);
   align-items: center;
 }
 
@@ -45,6 +50,8 @@ html{
   position: absolute;
   border: #1A1433, black;
   border-radius: 7%;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: #9580C9;
 }
 
 .secondary-card{
@@ -72,3 +79,25 @@ html{
   margin-left: 10px;
 }
 
+.image-holder{
+  position: relative;
+  height: 70%;
+  width: 100%;
+  border-radius: 7%;
+}
+
+.image-holder img{
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 9%;
+}
+
+.object-info{
+  position: relative;
+  height: 30%;
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+}
