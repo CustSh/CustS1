@@ -69,3 +69,7 @@ def profile(request):
         'form':form,
     }
     return render(request,'users/profile.html',context)
+
+
+def users_carts(request):
+    return render(request, 'users/users_carts.html')
