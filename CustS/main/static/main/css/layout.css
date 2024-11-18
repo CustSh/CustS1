@@ -218,15 +218,6 @@ body{
   color: var(--search-clr);
 }
 
-.search-wrapper:focus{
-  outline: 0;
-}
-
-.search-wrapper:focus-within{
-  width: 100%;
-  box-shadow: 10px 10px 30px black;
-}
-
 .search-wrapper input {
   position: relative;
   height: 50px;
