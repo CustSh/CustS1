@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% load static %}
+
 {% load carts_tags %}
 
 {% user_carts request as carts %}
@@ -8,9 +9,9 @@
 
 {% block title %}Корзина{% endblock %}
 
-{% comment %} {% block extra_css %}
-<link rel="stylesheet" href="{% static 'casts/css/casts.css' %}">
-{% endblock %} {% endcomment %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'carts/css/casts.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="card mb-3 text-bg-light shadow-lg">
