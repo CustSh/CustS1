@@ -3,8 +3,16 @@ from django.http import HttpResponse
 from catalog.models import Product
 from carts.models import Cart
 
+# def carts(request):
+#     return render(request, "carts/carts.html", {'request': request})
+
+# работает
 def carts(request):
-    return render(request, "carts/carts.html")
+    carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else None
+    context = {
+        'carts': carts,
+    }
+    return render(request, 'carts/carts.html', context)
 
 
 def add(request, product_slug):

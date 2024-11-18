@@ -8,9 +8,9 @@
 
 {% block title %}Корзина{% endblock %}
 
-{% block extra_css %}
+{% comment %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'casts/css/casts.css' %}">
-{% endblock %}
+{% endblock %} {% endcomment %}
 
 {% block content %}
 <div class="card mb-3 text-bg-light shadow-lg">
@@ -30,14 +30,14 @@
               <input type="text" class="form-control number" value="{{ cart.quantity }}" 
               readonly>
               <span class="input-group-btn">
-                <button type="button" class="btn btn-dark btn-sm increment"                        data-cart-id="" data-cart-change-url="">+</button>
+                <button type="button" class="btn btn-dark btn-sm increment" data-cart-id="" data-cart-change-url="">+</button>
               </span>
             </div>
           </div>
         <div class="col p-0">
           <p>x {{ cart.product.sell_price }} = </p>
         </div>
-        <div class="col p-0"><strong> {{ card.products_price }} $</strong></div>
+        <div class="col p-0"><strong> {{ cart.products_price }} $</strong></div>
         <div class="col p-0">
             <a href="#" class="remove-from-cart" data-cart-id="">
                 <img class="mx-1" src="../deps/icons/trash3-fill.svg"
@@ -52,8 +52,8 @@
 </div>
 <div class="card mb-3 shadow-lg">
     <div class="card-footer">
-        <p class="float-left">Итого <strong>1</strong> товар(а) на сумму</p>
-        <h4 class="float-left"><strong>100.00 $</strong></h4>
+        <p class="float-left">Итого <strong>{{ carts.total_quantity }}</strong> товар(а) на сумму</p>
+        <h4 class="float-left"><strong>{{ carts.total_price }} $</strong></h4>
     </div>
 </div>
 {% endblock %}
