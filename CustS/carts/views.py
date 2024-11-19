@@ -35,5 +35,10 @@ def add(request, product_slug):
 def change(request, product_slug):
     return HttpResponse(status=204)
 
-def remove(request, product_slug):
-    return HttpResponse(status=204)
+def remove(request, cart_id):
+
+    cart =  Cart.objects.get(id=cart_id)
+    cart.delete()
+    
+    return redirect(request.META['HTTP_REFERER'])
+
