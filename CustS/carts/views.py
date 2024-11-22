@@ -45,38 +45,30 @@ def add(request):
 
     return JsonResponse(response_data)
 
+
 def change(request):
-    return HttpResponse(status=204)
+    cart_id = request.POST.get("cart_id")
+    quantity = request.POST.get("quantity")
 
-# def cart_change(request):
-#     cart_id = request.POST.get("cart_id")
-#     quantity = request.POST.get("quantity")
+    cart = Cart.objects.get(id=cart_id)
 
-#     cart = Cart.objects.get(id=cart_id)
+    cart.quantity = quantity
+    cart.save()
 
-#     cart.quantity = quantity
-#     cart.save()
-#     updated_quantity = cart.quantity
+    user_cart = get_user_carts(request)
 
-#     user_cart = get_user_carts(request)
+    context = {"carts": user_cart}
 
-#     context = {"carts": user_cart}
+    cart_items_html = render_to_string(
+        "carts/carts.html", context, request=request)
 
-#     # if referer page is create_order add key orders: True to context
-#     referer = request.META.get('HTTP_REFERER')
-#     if reverse('orders:create_order') in referer:
-#         context["order"] = True
+    response_data = {
+        "message": "Количество изменено",
+        "cart_items_html": cart_items_html,
+        "quantity": quantity,
+    }
 
-#     cart_items_html = render_to_string(
-#         "carts/includes/included_cart.html", context, request=request)
-
-#     response_data = {
-#         "message": "Количество изменено",
-#         "cart_items_html": cart_items_html,
-#         "quantity": updated_quantity,
-#     }
-
-#     return JsonResponse(response_data)
+    return JsonResponse(response_data)
 
 
 
