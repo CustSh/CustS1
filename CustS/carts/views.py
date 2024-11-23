@@ -77,7 +77,7 @@ def change(request):
 
     response_data = {
         "message": "Количество изменено",
-        "cart_items_html": cart_items_html,
+        # "cart_items_html": cart_items_html,
         "quantity": quantity,
     }
 
