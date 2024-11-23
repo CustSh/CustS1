@@ -46,10 +46,10 @@ def add(request):
         else:
             Cart.objects.create(
                 session_key=request.session.session_key, product=product, quantity=1)
-
+    
     user_cart = get_user_carts(request)
     cart_items_html = render_to_string(
-        "carts/carts.html", {"carts": user_cart}, request=request)
+        "carts/includes/included_carts.html", {"carts": user_cart}, request=request)
 
     response_data = {
         "message": "Товар добавлен в корзину",

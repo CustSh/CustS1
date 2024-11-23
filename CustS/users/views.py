@@ -34,7 +34,9 @@ def register(request):
     }
     return render(request,'users/register.html',context)
 
-def user_login(request):
+
+
+def login(request):
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
@@ -63,11 +65,15 @@ def user_login(request):
     }
     return render(request,'users/login.html',context)
 
+
+
 @login_required
-def user_logout(request):
+def logout(request):
     auth.logout(request)
     messages.success(request,f" Вы вышли из аккаунта!")
     return HttpResponseRedirect(reverse('home'))  # Перенаправление на главную страницу после выхода
+
+
 
 @login_required
 def profile(request):
