@@ -34,6 +34,19 @@ def add(request):
         else:
             Cart.objects.create(user=request.user, product=product, quantity=1)
 
+    else:
+        carts = Cart.objects.filter(
+            session_key=request.session.session_key, product=product)
+
+        if carts.exists():
+            cart = carts.first()
+            if cart:
+                cart.quantity += 1
+                cart.save()
+        else:
+            Cart.objects.create(
+                session_key=request.session.session_key, product=product, quantity=1)
+
     user_cart = get_user_carts(request)
     cart_items_html = render_to_string(
         "carts/carts.html", {"carts": user_cart}, request=request)
@@ -75,6 +88,8 @@ def change(request):
 def remove(request):
     
     cart_id = request.POST.get("cart_id")
+    if not cart_id:
+        return JsonResponse({"error": "Cart ID is missing"}, status=400)
 
     cart = Cart.objects.get(id=cart_id)
     quantity = cart.quantity
