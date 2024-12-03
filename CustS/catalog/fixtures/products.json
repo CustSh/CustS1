@@ -1,209 +1,69 @@
 [
 {
     "model": "catalog.product",
-    "pk": 1,
-    "fields": {
-        "name": "mel",
-        "description": "gen",
-        "slug": "mygen",
-        "price": "125.00",
-        "category": 4,
-        "discount": "0.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
-    "pk": 2,
-    "fields": {
-        "name": "smd",
-        "description": "gen",
-        "slug": "mygen1",
-        "price": "265.00",
-        "category": 4,
-        "discount": "0.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
-    "pk": 3,
-    "fields": {
-        "name": "ssq",
-        "description": "gen",
-        "slug": "mygen2",
-        "price": "455.00",
-        "category": 4,
-        "discount": "0.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
-    "pk": 4,
-    "fields": {
-        "name": "las",
-        "description": "gen",
-        "slug": "mygen3",
-        "price": "55.00",
-        "category": 4,
-        "discount": "3.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
     "pk": 5,
     "fields": {
-        "name": "weq",
-        "description": "gen",
-        "slug": "mygen4",
-        "price": "455.00",
-        "category": 4,
+        "name": "apple",
+        "description": "The apple tree, scientifically known as Malus domestica, is a deciduous tree renowned for its delicious fruit, the apple. It is widely cultivated in temperate regions around the world and has significant cultural and economic importance.",
+        "slug": "apple",
+        "price": "1500.00",
+        "category": 2,
         "discount": "0.00",
         "quantity": 0,
-        "image": ""
+        "image": "products/apple_rZMc7B0.png"
     }
 },
 {
     "model": "catalog.product",
     "pk": 6,
     "fields": {
-        "name": "kol",
-        "description": "gen",
-        "slug": "mygen5",
-        "price": "455.00",
-        "category": 4,
+        "name": "banana",
+        "description": "The banana is a tropical fruit known for its distinctive elongated shape and vibrant yellow peel when ripe. It belongs to the genus Musa and is cultivated in many warm regions around the world. Bananas are not only delicious but also nutritious, making them a popular snack.",
+        "slug": "sucksuck",
+        "price": "5.00",
+        "category": 2,
         "discount": "0.00",
         "quantity": 0,
-        "image": ""
+        "image": "products/banana_KBxuwpA.png"
     }
 },
 {
     "model": "catalog.product",
     "pk": 7,
     "fields": {
-        "name": "kol6",
-        "description": "gen",
-        "slug": "mygen6",
-        "price": "455.00",
-        "category": 4,
+        "name": "Ananas",
+        "description": "The ananas, commonly known as the pineapple, is a tropical fruit renowned for its unique appearance and sweet, tangy flavor. Belonging to the genus Ananas, this fruit is native to South America but is now cultivated in various warm climates around the world. ягодаблять",
+        "slug": "anaaaaaaana",
+        "price": "49.00",
+        "category": 3,
         "discount": "0.00",
         "quantity": 0,
-        "image": ""
+        "image": "products/anana_83FSrYA.png"
     }
 },
 {
     "model": "catalog.product",
     "pk": 8,
     "fields": {
-        "name": "kim7",
-        "description": "gen",
-        "slug": "mygen7",
-        "price": "455.00",
-        "category": 4,
+        "name": "Арбуз",
+        "description": "Арбуз, научное название Citrullus lanatus, — это крупный сладкий фрукт, который принадлежит к семейству тыквенных. Он известен своим освежающим вкусом и сочной мякотью, что делает его популярным летом.",
+        "slug": "Arbyzzzz",
+        "price": "199.00",
+        "category": 3,
         "discount": "0.00",
         "quantity": 0,
-        "image": ""
+        "image": "products/watermelon_ZrD1TgY.png"
     }
 },
 {
     "model": "catalog.product",
     "pk": 9,
     "fields": {
-        "name": "ew",
-        "description": "gen",
-        "slug": "mygen8",
-        "price": "455.00",
-        "category": 4,
-        "discount": "0.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
-    "pk": 10,
-    "fields": {
-        "name": "ew9",
-        "description": "gen",
-        "slug": "mygen9",
-        "price": "455.00",
-        "category": 4,
-        "discount": "0.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
-    "pk": 11,
-    "fields": {
-        "name": "ko10",
-        "description": "gen",
-        "slug": "mygen10",
-        "price": "75.00",
-        "category": 4,
-        "discount": "7.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
-    "pk": 12,
-    "fields": {
-        "name": "img11",
-        "description": "gen",
-        "slug": "mygen11",
-        "price": "45.00",
-        "category": 4,
-        "discount": "5.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
-    "pk": 13,
-    "fields": {
-        "name": "put1",
-        "description": "gen",
-        "slug": "put1",
-        "price": "355.00",
-        "category": 4,
-        "discount": "4.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
-    "pk": 14,
-    "fields": {
-        "name": "put2",
-        "description": "gen",
+        "name": "putana2",
+        "description": "suck suck suck putana",
         "slug": "put2",
         "price": "455.00",
-        "category": 4,
-        "discount": "0.00",
-        "quantity": 0,
-        "image": ""
-    }
-},
-{
-    "model": "catalog.product",
-    "pk": 15,
-    "fields": {
-        "name": "put3",
-        "description": "gen",
-        "slug": "put3",
-        "price": "46.00",
-        "category": 4,
+        "category": 1,
         "discount": "0.00",
         "quantity": 0,
         "image": ""

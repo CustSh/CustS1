@@ -1,4 +1,4 @@
-{% extends 'main/layout.html' %}
+{% extends 'layout.html' %}
 
 {% block title %}{{ product.name }}{% endblock %}
 
@@ -6,8 +6,17 @@
 <h1>{{ product.name }}</h1>
 <p>{{ product.description }}</p>
 <p>Цена: {{ product.price }}$</p>
+
+<button class="add-to-cart-button">
+  <a href="{% url 'add' %}" class="add-to-cart-button"
+  data-product-id="{{ product.id }}">
+  {% csrf_token %}
+  Добавить в корзину</a>
+</button>
+
 {% if product.image %}
-    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+  <img src="{{ product.image.url }}" alt="{{ product.name }}">
 {% endif %}
+
 <a href="{% url 'catalog:index' 'all' %}">Назад к каталогу</a>
 {% endblock %}

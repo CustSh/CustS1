@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import ForeignKey
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -45,13 +46,22 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     #video = models.FileField(upload_to='products/video/', blank=True, null=True)  # поле для одного видео в карточке
 
-    def sell_price(self):
-        # if self.discount:
-        #     return round(self.price - self.price*self.discount/100, 2)
-        return self.price
-
     def __str__(self):
-        return self.name
+        return f'{self.name} Количество - {self.quantity}'
+
+    def get_absolute_url(self):
+        return reverse("catalog:product_detail", kwargs={"product_slug": self.slug})
+    
+
+    def display_id(self):
+        return f"{self.id:05}"
+
+
+    def sell_price(self):
+        if self.discount:
+            return round(self.price - self.price*self.discount/100, 2)
+        
+        return self.price
 
 
 
